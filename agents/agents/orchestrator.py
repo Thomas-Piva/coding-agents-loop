@@ -28,8 +28,6 @@ orchestrator = Agent(
         "Reviewer responds with 'APPROVATO' or until MAX_REVIEW_ITERATIONS.\n"
         "5. When approved, present the final result to the user in Italian."
     ),
-    show_tool_calls=True,
-    markdown=True,
 )
 
 

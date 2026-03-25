@@ -30,8 +30,6 @@ reviewer = Agent(
         "describing each problem clearly, so the Coder can fix them."
     ),
     tools=[read_file, list_files, run_command],
-    show_tool_calls=True,
-    markdown=True,
 )
 
 

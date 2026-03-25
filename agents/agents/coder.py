@@ -30,8 +30,6 @@ coder = Agent(
     ),
     tools=[read_file, write_file, list_files, delete_file,
            run_command, git_init, git_add, git_commit, git_diff, git_log],
-    show_tool_calls=True,
-    markdown=True,
 )
 
 
