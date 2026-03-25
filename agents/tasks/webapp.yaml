@@ -1,0 +1,13 @@
+name: webapp
+description: "Full-stack web application (frontend + backend + database)"
+orchestrator_prompt: |
+  Build a complete full-stack web application in /workspace.
+  Backend REST API, frontend UI, database schema.
+  The Reviewer must verify correctness, security, and that the app runs.
+coder_focus: "Implement backend API, frontend UI, DB schema, README with run instructions"
+reviewer_checklist:
+  - "Backend si avvia senza errori"
+  - "Frontend carica correttamente"
+  - "Nessun segreto hardcoded"
+  - "README presente con istruzioni"
+  - "Codice pulito e modulare"

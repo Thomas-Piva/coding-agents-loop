@@ -1,0 +1,13 @@
+name: refactor
+description: "Analizza e refactora il codice esistente in /workspace"
+orchestrator_prompt: |
+  Analyze all existing code in /workspace and perform a thorough refactor.
+  Improve: code quality, readability, performance, test coverage.
+  Do not change external behavior.
+coder_focus: "Refactor per leggibilità, performance, aggiunta test mancanti"
+reviewer_checklist:
+  - "Comportamento esterno invariato"
+  - "Codice più leggibile di prima"
+  - "Test passano"
+  - "Nessuna regressione introdotta"
+  - "Commenti aggiornati dove necessario"

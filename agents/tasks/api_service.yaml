@@ -1,0 +1,13 @@
+name: api_service
+description: "REST API service con autenticazione e documentazione"
+orchestrator_prompt: |
+  Build a production-ready REST API in /workspace.
+  Include: authentication (JWT or API key), at least 3 endpoints,
+  input validation, error handling, OpenAPI documentation.
+coder_focus: "REST API con auth, validazione, error handling, OpenAPI docs"
+reviewer_checklist:
+  - "Tutti gli endpoint restituiscono HTTP status corretti"
+  - "Autenticazione funzionante"
+  - "Validazione input presente"
+  - "Documentazione OpenAPI generata"
+  - "Nessuna vulnerabilità di sicurezza"
