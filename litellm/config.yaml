@@ -1,13 +1,13 @@
 model_list:
   - model_name: orchestrator
     litellm_params:
-      model: gemini/gemini-2.5-pro
+      model: gemini/gemini-3.1-pro-preview
       api_base: http://cliproxy:8080/gemini/v1
       api_key: "unused"
 
   - model_name: coder
     litellm_params:
-      model: openai/codex-1
+      model: openai/gpt-5.3-codex
       api_base: http://cliproxy:8080/codex/v1
       api_key: "unused"
 

@@ -11,11 +11,11 @@ Multi-agent coding system with 3 coordinated agents (Orchestrator, Coder, Review
 │  │  :8080       │◄───│   :4000      │◄───│  (Agno +    │  │
 │  │              │    │              │    │  Claude CLI) │  │
 │  │ Gemini OAuth │    │ orchestrator │    │              │  │
-│  │ Claude OAuth │    │ → Gemini 2.5 │    │ Orchestrator │  │
+│  │ Claude OAuth │    │ → Gemini 3.1 │    │ Orchestrator │  │
 │  │ Codex OAuth  │    │ coder        │    │ Coder        │  │
-│  │ (multi-acct) │    │ → Codex      │    │ Reviewer     │  │
+│  │ (multi-acct) │    │ → GPT-5.3    │    │ Reviewer     │  │
 │  └──────────────┘    │ reviewer     │    └──────────────┘  │
-│                      │ → Sonnet     │                       │
+│                      │ → Sonnet 4.5 │                       │
 │                      └──────────────┘                       │
 └─────────────────────────────────────────────────────────────┘
               │
@@ -35,9 +35,9 @@ Multi-agent coding system with 3 coordinated agents (Orchestrator, Coder, Review
 
 | Agent | Model | LiteLLM alias | Role |
 |-------|-------|---------------|------|
-| Orchestrator | Gemini 2.5 Pro | `orchestrator` | Decomposes tasks, assigns to Coder, iterates until approved |
-| Coder | OpenAI Codex | `coder` | Implements code using filesystem/shell/git tools and MCP servers |
-| Reviewer | Claude Sonnet 4 | `reviewer` | Reviews output, returns issues in Italian or approves with "APPROVATO" |
+| Orchestrator | Gemini 3.1 Pro Preview | `orchestrator` | Decomposes tasks, assigns to Coder, iterates until approved |
+| Coder | GPT-5.3 Codex | `coder` | Implements code using filesystem/shell/git tools and MCP servers |
+| Reviewer | Claude Sonnet 4.5 | `reviewer` | Reviews output, returns issues in Italian or approves with "APPROVATO" |
 
 ## The Loop
 
