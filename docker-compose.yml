@@ -2,12 +2,14 @@ version: "3.9"
 
 services:
   cliproxy:
-    image: ghcr.io/router-for-me/cliproxyapi:latest
+    image: eceasy/cli-proxy-api:latest
     container_name: cliproxy
     ports:
-      - "${CLIPROXY_PORT:-8080}:8080"
+      - "${CLIPROXY_PORT:-8317}:8317"
     volumes:
-      - ./cliproxy/config.yaml:/app/config.yaml
+      - ./cliproxy/config.yaml:/CLIProxyAPI/config.yaml
+      - ./cliproxy/auths:/root/.cli-proxy-api
+      - ./cliproxy/logs:/CLIProxyAPI/logs
     restart: unless-stopped
 
   litellm:

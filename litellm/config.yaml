@@ -1,21 +1,21 @@
 model_list:
   - model_name: orchestrator
     litellm_params:
-      model: gemini/gemini-3.1-pro-preview
-      api_base: http://cliproxy:8080/gemini/v1
-      api_key: "unused"
+      model: openai/gemini-3.1-pro-preview
+      api_base: http://cliproxy:8317/v1
+      api_key: "your-api-key-1"
 
   - model_name: coder
     litellm_params:
       model: openai/gpt-5.3-codex
-      api_base: http://cliproxy:8080/codex/v1
-      api_key: "unused"
+      api_base: http://cliproxy:8317/v1
+      api_key: "your-api-key-1"
 
   - model_name: reviewer
     litellm_params:
-      model: anthropic/claude-sonnet-4-5
-      api_base: http://cliproxy:8080/claude/v1
-      api_key: "unused"
+      model: openai/claude-sonnet-4-5
+      api_base: http://cliproxy:8317/v1
+      api_key: "your-api-key-1"
 
 litellm_settings:
   drop_params: true
