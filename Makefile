@@ -1,4 +1,4 @@
-.PHONY: up down tmux logs clean build ps
+.PHONY: up down tmux logs clean build ps login-gemini login-claude login-codex
 
 # Start all services in background
 up:
@@ -33,12 +33,13 @@ clean:
 	find workspace/ -mindepth 1 ! -name '.gitkeep' -delete
 	@echo "Workspace cleaned."
 
-# OAuth login helpers
+# OAuth login helpers — usa -no-browser per WSL2 (stampa URL da aprire manualmente)
 login-gemini:
-	docker-compose run --rm cliproxy auth login gemini
+	docker exec -it cliproxy ./CLIProxyAPI -login -no-browser
 
 login-claude:
-	docker-compose run --rm cliproxy auth login claude
+	docker exec -it cliproxy ./CLIProxyAPI -claude-login -no-browser
 
+# Codex usa device code flow (più affidabile in WSL2, non richiede callback browser)
 login-codex:
-	docker-compose run --rm cliproxy auth login codex
+	docker exec -it cliproxy ./CLIProxyAPI -codex-device-login
