@@ -15,7 +15,7 @@ orchestrator = Agent(
         base_url=LITELLM_BASE_URL,
         api_key=LITELLM_API_KEY,
     ),
-    system_prompt=(
+    instructions=(
         "Communicate with other agents in English. All internal reasoning "
         "and inter-agent messages must be in English. "
         "Final output and summaries to the end user must be in Italian.\n\n"

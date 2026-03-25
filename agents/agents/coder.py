@@ -18,7 +18,7 @@ coder = Agent(
         base_url=LITELLM_BASE_URL,
         api_key=LITELLM_API_KEY,
     ),
-    system_prompt=(
+    instructions=(
         "Communicate with other agents in English. All internal reasoning "
         "and inter-agent messages must be in English.\n\n"
         "You are the Coder agent. Your responsibilities:\n"
