@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  cliproxy:
+    image: ghcr.io/router-for-me/cliproxyapi:latest
+    container_name: cliproxy
+    ports:
+      - "${CLIPROXY_PORT:-8080}:8080"
+    volumes:
+      - ./cliproxy/config.yaml:/app/config.yaml
+    restart: unless-stopped
+
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    container_name: litellm
+    ports:
+      - "${LITELLM_PORT:-4000}:4000"
+    volumes:
+      - ./litellm/config.yaml:/app/config.yaml
+    environment:
+      - LITELLM_MASTER_KEY=${LITELLM_MASTER_KEY}
+    command: ["--config", "/app/config.yaml", "--port", "4000"]
+    depends_on:
+      - cliproxy
+    restart: unless-stopped
+
+  agents:
+    build: ./agents
+    container_name: agents
+    volumes:
+      - ./workspace:/workspace
+      - ./agents/mcp_servers/config.json:/app/mcp_servers/config.json
+    environment:
+      - LITELLM_BASE_URL=http://litellm:4000
+      - LITELLM_API_KEY=${LITELLM_API_KEY}
+      - MAX_REVIEW_ITERATIONS=${MAX_REVIEW_ITERATIONS:-5}
+      - GITHUB_TOKEN=${GITHUB_TOKEN:-}
+    depends_on:
+      - litellm
+    restart: unless-stopped

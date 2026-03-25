@@ -1,0 +1,43 @@
+# CLIProxyAPI Configuration
+# Documentation: https://github.com/router-for-me/CLIProxyAPI
+#
+# Authentication (run once per account):
+#   docker-compose run --rm cliproxy auth login gemini
+#   docker-compose run --rm cliproxy auth login claude
+#   docker-compose run --rm cliproxy auth login codex
+
+server:
+  port: 8080
+  host: "0.0.0.0"
+
+# ─── Gemini (Google Cloud Pro) ─────────────────────────────────────────────
+# Round-robin across 2 accounts to avoid rate limits.
+# Login: docker-compose run --rm cliproxy auth login gemini
+gemini:
+  round_robin: true
+  accounts:
+    - id: gemini-account-1
+      # Populated automatically after: auth login gemini
+      token_path: /app/tokens/gemini-account-1.json
+    - id: gemini-account-2
+      token_path: /app/tokens/gemini-account-2.json
+
+# ─── Claude (Anthropic Pro) ────────────────────────────────────────────────
+# Round-robin across 2 accounts to avoid rate limits.
+# Login: docker-compose run --rm cliproxy auth login claude
+claude:
+  round_robin: true
+  accounts:
+    - id: claude-account-1
+      token_path: /app/tokens/claude-account-1.json
+    - id: claude-account-2
+      token_path: /app/tokens/claude-account-2.json
+
+# ─── Codex (ChatGPT Pro / OpenAI) ──────────────────────────────────────────
+# Single account (ChatGPT Pro subscription).
+# Login: docker-compose run --rm cliproxy auth login codex
+codex:
+  round_robin: false
+  accounts:
+    - id: codex-account-1
+      token_path: /app/tokens/codex-account-1.json

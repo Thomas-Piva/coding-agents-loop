@@ -1,0 +1,5 @@
+agno
+openai
+pyyaml
+python-dotenv
+rich
