@@ -40,6 +40,6 @@ login-gemini:
 login-claude:
 	docker exec -it cliproxy ./CLIProxyAPI -claude-login -no-browser
 
-# Codex usa device code flow (più affidabile in WSL2, non richiede callback browser)
+# Codex usa browser OAuth (callback su porta 54545)
 login-codex:
-	docker exec -it cliproxy ./CLIProxyAPI -codex-device-login
+	docker exec -it cliproxy ./CLIProxyAPI -codex-login -no-browser
